@@ -1,0 +1,3 @@
+[submodule "logs"]
+	path = logs
+	url = https://github.com/Pashs-ba/logs
