@@ -36,9 +36,9 @@ if __name__ == '__main__':
                     ChangeDirectionSprite(SNAKE.sprites()[0].rect.x, SNAKE.sprites()[0].rect.y, -1, 0)
                 if i.key == pygame.K_RIGHT:
                     ChangeDirectionSprite(SNAKE.sprites()[0].rect.x, SNAKE.sprites()[0].rect.y, 1, 0)
-                if i.key == pygame.K_DOWN:
-                    ChangeDirectionSprite(SNAKE.sprites()[0].rect.x, SNAKE.sprites()[0].rect.y, 0, -1)
                 if i.key == pygame.K_UP:
+                    ChangeDirectionSprite(SNAKE.sprites()[0].rect.x, SNAKE.sprites()[0].rect.y, 0, -1)
+                if i.key == pygame.K_DOWN:
                     ChangeDirectionSprite(SNAKE.sprites()[0].rect.x, SNAKE.sprites()[0].rect.y, 0, 1)
             if i.type == pygame.USEREVENT + 1:
                 SNAKE.update()
