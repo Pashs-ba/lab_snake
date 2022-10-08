@@ -1,6 +1,7 @@
 import time
 from enitity import *
 import random
+from logs.log import save
 
 pygame.init()
 surface = pygame.display.set_mode((X, Y))
@@ -21,16 +22,14 @@ if __name__ == '__main__':
 
         for i in pygame.event.get():
             if i.type == pygame.QUIT:
-                print(SCORE)
-                print(len(SNAKE.sprites()))
+                save([SCORE, len(SNAKE.sprites())])
                 surface.blit(end_game.render('SCORE {}'.format(len(SNAKE.sprites())), 1, (0, 255, 0)), (0, 50))
                 pygame.display.update()
                 time.sleep(10)
                 quit()
             if i.type == pygame.USEREVENT:
-                print('q')
                 a = AppleSprite(random.randint(0, 10) * 10, random.randint(0, 10) * 10)
-                print(a.rect.x, a.rect.y)
+                save([a.rect.x, a.rect.y])
             if i.type == pygame.KEYDOWN:
                 if i.key == pygame.K_LEFT:
                     ChangeDirectionSprite(SNAKE.sprites()[0].rect.x, SNAKE.sprites()[0].rect.y, -1, 0)
