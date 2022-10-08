@@ -72,4 +72,18 @@ class SnakePartSprite(BaseSprite):
         if 0 <= self.rect.y <= Y:
             self.rect.y += self.direction[1] * self.size
 
+class ChangeDirectionSprite(BaseSprite):
+    def __init__(self, x, y, x_dir, y_dir):
+        super().__init__(x, y)
+        self.direction = [x_dir, y_dir]
+        self.image.fill((0, 0, 0))
+        self.add(CHANGE_DIRECTION)
 
+    def update(self):
+        a = True
+        for part in SNAKE.sprites():
+            if part.rect.x == self.rect.x and part.rect.y == self.rect.y:
+                a = False
+
+        if a:
+            self.kill()
